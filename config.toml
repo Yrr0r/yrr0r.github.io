@@ -6,8 +6,6 @@ title = "demo for amaki"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 pluralizelisttitles = false
 
-publishDir = "docs"
-
 [params]
   author = "Yrr0r"
   description = "Sample"

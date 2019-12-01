@@ -27,16 +27,16 @@
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="../public/css/kitab.css" />
+  <link rel="stylesheet" href="../css/kitab.css" />
 
-  <script src="../public/js/myFunctions.js"></script>
-  <script src="../public/js/clipboard.min.js"></script>
+  <script src="../js/myFunctions.js"></script>
+  <script src="../js/clipboard.min.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
     <nav class="mt-2 border-bottom">
   <div class="d-flex flex-row position-relative">
-    <a href="../public/"
+    <a href="../"
       ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
     ></a>
 	
@@ -64,21 +64,21 @@
       <ul class="list-unstyled ml-1">
         
         <li class="hanging">
-          <a href="../public/pride_and_prejudice/">
+          <a href="../pride_and_prejudice/">
             Pride <em>and</em> Prejudice
           </a>
           by Jane Austen
         </li>
         
         <li class="hanging">
-          <a href="../public/1-%E4%B8%BB%E7%BA%BF/">
+          <a href="../1-%E4%B8%BB%E7%BA%BF/">
             1 - 主线
           </a>
           by 
         </li>
         
         <li class="hanging">
-          <a href="../public/2-%E6%94%AF%E7%BA%BF/">
+          <a href="../2-%E6%94%AF%E7%BA%BF/">
             2 - 支线
           </a>
           by 
@@ -112,13 +112,13 @@
     <ul class="list-unstyled">
       
       <li>
-        <a href="../public/2-%E6%94%AF%E7%BA%BF/2-%E6%96%B0%E8%83%BD%E6%BA%90/">
+        <a href="../2-%E6%94%AF%E7%BA%BF/2-%E6%96%B0%E8%83%BD%E6%BA%90/">
           新能源
         </a>
       </li>
       
       <li>
-        <a href="../public/2-%E6%94%AF%E7%BA%BF/1-%E7%89%B9%E5%88%AB%E7%AF%87-%E5%85%AC%E4%B8%BB%E6%AE%BF%E4%B8%8B/">
+        <a href="../2-%E6%94%AF%E7%BA%BF/1-%E7%89%B9%E5%88%AB%E7%AF%87-%E5%85%AC%E4%B8%BB%E6%AE%BF%E4%B8%8B/">
           特别篇 - 公主殿下
         </a>
       </li>
@@ -174,7 +174,7 @@
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "\/public\/2-%E6%94%AF%E7%BA%BF\/";
+      return "\/2-%E6%94%AF%E7%BA%BF\/";
     }
   });
 

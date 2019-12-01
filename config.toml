@@ -1,4 +1,4 @@
-baseURL = "/public"
+baseURL = ""
 RelativeURLs=true
 languageCode = "zh-cn"
 theme = "kitab"

@@ -1,4 +1,5 @@
 baseURL = "/public"
+RelativeURLs=true
 languageCode = "zh-cn"
 theme = "kitab"
 title = "demo for amaki"

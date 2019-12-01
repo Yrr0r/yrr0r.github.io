@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "/public"
 languageCode = "zh-cn"
 theme = "kitab"
 title = "demo for amaki"

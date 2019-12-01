@@ -27,16 +27,16 @@
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="/css/kitab.css" />
+  <link rel="stylesheet" href="/public/css/kitab.css" />
 
-  <script src="/js/myFunctions.js"></script>
-  <script src="/js/clipboard.min.js"></script>
+  <script src="/public/js/myFunctions.js"></script>
+  <script src="/public/js/clipboard.min.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
     <nav class="mt-2 border-bottom">
   <div class="d-flex flex-row position-relative">
-    <a href="/"
+    <a href="/public/"
       ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
     ></a>
 	
@@ -64,21 +64,21 @@
       <ul class="list-unstyled ml-1">
         
         <li class="hanging">
-          <a href="/pride_and_prejudice/">
+          <a href="/public/pride_and_prejudice/">
             Pride <em>and</em> Prejudice
           </a>
           by Jane Austen
         </li>
         
         <li class="hanging">
-          <a href="/1-%E4%B8%BB%E7%BA%BF/">
+          <a href="/public/1-%E4%B8%BB%E7%BA%BF/">
             1 - 主线
           </a>
           by 
         </li>
         
         <li class="hanging">
-          <a href="/2-%E6%94%AF%E7%BA%BF/">
+          <a href="/public/2-%E6%94%AF%E7%BA%BF/">
             2 - 支线
           </a>
           by 
@@ -112,37 +112,37 @@
     <ul class="list-unstyled">
       
       <li>
-        <a href="/pride_and_prejudice/chapter1/">
+        <a href="/public/pride_and_prejudice/chapter1/">
           Chapter I
         </a>
       </li>
       
       <li>
-        <a href="/pride_and_prejudice/chapter2/">
+        <a href="/public/pride_and_prejudice/chapter2/">
           Chapter II
         </a>
       </li>
       
       <li>
-        <a href="/pride_and_prejudice/chapter3/">
+        <a href="/public/pride_and_prejudice/chapter3/">
           Chapter III
         </a>
       </li>
       
       <li>
-        <a href="/pride_and_prejudice/chapter4/">
+        <a href="/public/pride_and_prejudice/chapter4/">
           Chapter IV
         </a>
       </li>
       
       <li>
-        <a href="/pride_and_prejudice/chapter5/">
+        <a href="/public/pride_and_prejudice/chapter5/">
           Chapter V
         </a>
       </li>
       
       <li>
-        <a href="/pride_and_prejudice/chapter6/">
+        <a href="/public/pride_and_prejudice/chapter6/">
           Chapter VI
         </a>
       </li>
@@ -198,7 +198,7 @@
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "\/pride_and_prejudice\/";
+      return "\/public\/pride_and_prejudice\/";
     }
   });
 

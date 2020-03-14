@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="core.js"></script>
+    <script src="sha1.js"></script>
+</head>
+
+
+<h1 id="title">极密妄想文件！</h1>
+
+输入暗号：<br><input type="text" id="secret" onkeypress="keydown()"> <br>
+<br>
+<button id="run" onclick="genpass()">Go!</button>
+
+<p>结果：</p>
+<h2>
+<div id="outstr">(No Input)</div>
+</h2>
+
+<p>你刚刚输入了：</p>
+<h2>
+    <div id="instr">(No Input)</div>
+</h2>
+
+<script>
+
+function keydown(){
+    if(event.keyCode==13){
+        genpass()
+    }
+}
+
+
+function genpass(){
+    var presec = document.getElementById("secret")
+    var instr = (presec.value)
+    document.getElementById("instr").innerHTML=(instr);
+    var crypted = String(CryptoJS.SHA1(instr))
+    var outstr = crypted.substring(crypted.length - 6);
+    document.getElementById("outstr").innerHTML = outstr;
+}
+
+</script>
+
+</body>
+</html>

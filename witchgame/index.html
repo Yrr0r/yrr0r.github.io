@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小游戏：魔女之宴</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 class="text-center">魔女之宴的社团一个小游戏</h1>
+    <noscript>
+      <h1>本游戏使用JavaScript，请启用JavaScript后继续</h1>
+    </noscript>
+    <div class="row">
+
+      <div class="col-sm-6 p-3 ">
+        <div id="notes" class="text-center">
+          <div id="notice" class="text-left">告知：
+            <p>本游戏为魔女之宴社团内的一个桌游，类似于大富翁的机制</p>
+            <p>请不要穿超过五件以上的衣物参加本游戏</p>
+            <p>需要准备道具（例如跳蛋、按摩棒若干）</p>
+            <p>建议情侣间一起玩，有不少互动指令</p>
+            <p>在开始前每个人请塞上一枚跳蛋，暂时不打开</p>
+          </div>
+          <ul id="rule" class="text-left">
+            <b>规则：</b>
+            <li>按下按键掷骰子，非6的情况下对应前进相应步数，如果是6则将跳蛋的频率调高一档并再扔一次</li>
+            <li>前进到相应格子时，请完成对应指令</li>
+            <li>只有当到达红色格子时才允许高潮</li>
+            <li>在非红色格子上高潮时算作游戏失败</li>
+            <li>当到达黄色格子的时候可以休息一下（暂停一轮）</p>
+            <li>当到达绿色格子的时候，你获得一次机会，能够指定另一位玩家执行你所经过的格子上的命令（并不强制在本回合使用）</li>
+            <li>当到达蓝色格子的时候，你必须脱一件衣服（如果身上还有的话）</li>
+            <li>一共40格，如果超出终点则被扔进泳池内</li>
+          </ul>
+
+            <button id="startbutton" onclick="startgame()" class="btn btn-info">开始游戏！</button>
+          
+        </div>
+
+        <div id="gameview" hidden="true" class="card">
+          <div class="card-body">
+            <h5 id="currentDraw" class="card-title" style="height: 5rem;">点击掷骰子开始游戏吧！</h5>
+            <div class="text-center">
+              <button id="rollButton" class="btn btn-success" onclick="roll()">掷骰子！</button>
+            </div>
+            
+            <p>
+              当前位置：
+              <h1><div id="curpos" class="badge badge-pill badge-primary">0</div></h1>
+            </p>
+
+            游戏记录：
+            <div>
+              <h4 id="gamelog" class="overflow-auto"></h4>
+            </div>
+
+            <div class="text-center">
+              <a href="" class="btn btn-success">重新开始游戏</a>
+            </div>
+
+
+          </div>
+
+          
+        </div>
+
+      </div>
+
+      <!--Right side-->
+      <div class="col-sm-6">
+        <article id="chessboard" class=" row text-center p-3"></article>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="control.js"></script>
+</body>

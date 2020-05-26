@@ -24,7 +24,7 @@ var gametext = [
     "13）将按摩棒调至最高档位，持续时间两分钟",
     "14）脱光所有的衣服并后退一格",
     "15）单脚站立保持平衡一分钟",
-    "16）被你的对象打屁股x*10下，x为你本轮扔到的骰子数",
+    "16）被你的对象打屁股VAR下", // VAR = 骰子值 * 10
     "17）戴上脚铐，被你的对象挠一分钟脚心",
     "18）脱一件衣服，前进3格",
     "19）戴上口球，若一分钟内没有口水流出，则获得buff【不用执行下一次命令】若有口水流出，则多加一枚跳蛋",
@@ -34,9 +34,9 @@ var gametext = [
     "23）捆住手腕脚踝，然后后退一格",
     "24）单脚站立一分钟，同时让你的对象给你不断地挠脚心",
     "25）指定一名玩家进行roll点，如果你的点数高，则可以调高她所有道具的频率1档，反之则自己被调高2档",
-    "26）打你的对象屁股5x下，x为本轮点数",
+    "26）打你的对象屁股VAR下", // VAR = 骰子值 * 5
     "27）向你的对象念以下话语：“我最喜欢xxx（名字）了，以后心甘情愿成为xxx的宠物，让我做什么事情都可以”",
-    "28）戴上口球，同时被打屁股5x下，x为本轮点数",
+    "28）戴上口球，同时被打屁股VAR下", // VAR = 骰子值 * 5
     "29）脱去所有衣服，然后前进2格，并执行31格的指令【保持M字开腿自慰直至高潮，同时进行录像】",
     "30）取下所有的道具，然后前进1格，并执行31格的指令【保持M字开腿自慰直至高潮，同时进行录像】",
     "31）保持M字开腿自慰直至高潮，同时进行录像",
@@ -118,20 +118,29 @@ function startgame(){
 }
 
 //掷骰子
-function roll(){
+function roll(override){
     if(curpos > 40){
             document.getElementById("rollButton").classList.add("disabled");
             return ;
     }
-
-    randint = Math.floor(Math.random()*5 + 1);
+    var randint = 0;
+    // With overrides:
+    if(override != undefined){
+        randint = override;
+    }else{
+        randint = Math.floor(Math.random()*5 + 1);
+    }
+    
     if(randint == 6){
         document.getElementById("currentDraw").innerText = "你扔到了6，请把档位提高一档并重新再扔一次吧";
     } else {
         curpos = curpos + randint;
 
-        var action = gametext[curpos];
+        var action = getAction(curpos, randint);
+
         if(curpos > 40) action = gametext[0];
+
+        appendlog(curpos);
         
         if(jumps[curpos] != undefined){
             if(jumps[curpos] == "RESET"){
@@ -139,13 +148,13 @@ function roll(){
             } else {
                 curpos = curpos + jumps[curpos];
             }
+            appendlog(curpos);
         }
 
         document.getElementById("currentDraw").innerText = `你扔到了${randint}, 并且：${action}`;
 
         document.getElementById("curpos").innerText = curpos;
         markpiece(curpos);
-        appendlog(curpos);
         
     }
     
@@ -158,14 +167,43 @@ function appendlog(num){
     var newnum = document.createElement("span");
     newnum.id = `lognum${num}`;
     newnum.innerText = num;
-    newnum.classList = "badge badge-secondary m-1";
+    newnum.classList = "col-sm-2 m-1 p-3 border";
+
+    newnum.classList.add(`bg-${chkcolor(num)}`);
+
+    newnum.setAttribute("data-toggle", "tooltip");
+    newnum.setAttribute("title", gametext[num]);
     
     gamelog.appendChild(newnum);
+    // Activate the tooltip plugin:
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
 }
 
 function markpiece(num){
     piece = document.getElementById(`board${num}`);
+    if(piece == null) return ;
     piece.classList.add("font-weight-bold");
-    piece.classList.add("border-success");
+    piece.classList.add("border-info");
+}
+
+function chkcolor(num){
+    // Primary, Success, Warning, Danger
+    if(bluebox.includes(num)) return "primary";
+    if(greenbox.includes(num)) return "success";
+    if(yelwbox.includes(num)) return "warning";
+    if(redbox.includes(num)) return "danger";
+    return "light";
+}
+
+function getAction(curpos, diceval){
+    var tmpl = gametext[curpos];
+    if(curpos == 16){
+        tmpl = tmpl.replace("VAR", (diceval*10));
+    } else if ([26,28].includes(curpos)){
+        tmpl = tmpl.replace("VAR", (diceval*5));
+    }
+    return tmpl;
 }

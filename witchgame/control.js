@@ -140,7 +140,7 @@ function roll(override){
 
         if(curpos > 40) action = gametext[0];
 
-        appendlog(curpos);
+        appendlog(curpos, action);
         
         if(jumps[curpos] != undefined){
             if(jumps[curpos] == "RESET"){
@@ -161,7 +161,7 @@ function roll(override){
 
 }
 
-function appendlog(num){
+function appendlog(num, logovrd){
     gamelog = document.getElementById("gamelog");
     
     var newnum = document.createElement("span");
@@ -172,7 +172,11 @@ function appendlog(num){
     newnum.classList.add(`bg-${chkcolor(num)}`);
 
     newnum.setAttribute("data-toggle", "tooltip");
-    newnum.setAttribute("title", gametext[num]);
+    if(logovrd == undefined){
+        newnum.setAttribute("title", gametext[num]);
+    } else{
+        newnum.setAttribute("title", logovrd);
+    }
     
     gamelog.appendChild(newnum);
     // Activate the tooltip plugin:
